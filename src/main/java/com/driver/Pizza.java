@@ -6,12 +6,16 @@ public class Pizza {
     private int price;
     private Boolean isVeg;
     private String bill;
+    private Boolean isExtraCheese;
+    private Boolean isExtraTopping;
+    private Boolean isTake;
 
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
         this.price = isVeg? 300: 400;
-        bill = String.valueOf(price);
-        // your code goes here
+        isExtraCheese = false;
+        isExtraTopping = false;
+        isTake = true;
     }
 
     public int getPrice(){
@@ -19,22 +23,22 @@ public class Pizza {
     }
 
     public void addExtraCheese(){
-//        System.out.println(bill);
-        bill = String.valueOf(Integer.parseInt(bill) + 80);
+        isExtraCheese = true;
     }
 
     public void addExtraToppings(){
-        // your code goes here
-        bill = String.valueOf(Integer.parseInt(bill)+ (isVeg ? 70 : 120));
+       isExtraTopping = true;
     }
 
     public void addTakeaway(){
-        // your code goes here
-        bill = String.valueOf(Integer.parseInt(bill) + 20);
+        isTake = true;
     }
 
+    private int total = price;
     public String getBill(){
-       
-        return this.bill;
+       if(isExtraCheese) total += 80;
+       if(isExtraCheese) total += (isVeg ? 70 : 120);
+       if(isTake) total += 20;
+       return String.valueOf(total);
     }
 }
