@@ -6,7 +6,6 @@ public class Pizza {
     private int price;
     private Boolean isVeg;
     private String bill;
-    private int total;
 
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
@@ -15,26 +14,25 @@ public class Pizza {
 
     public int getPrice(){
         this.price = isVeg? 300: 400;
-        this.total = this.price;
-        return this.total;
+        return this.price;
     }
 
     public void addExtraCheese(){
-        total = total + 80;
+        price += 80;
     }
 
     public void addExtraToppings(){
         // your code goes here
-        total = total + 70;
+        price += 70;
     }
 
     public void addTakeaway(){
         // your code goes here
-        total = total + 20;
+        price += 20;
     }
 
     public String getBill(){
         // your code goes here
-        return String.valueOf(total);
+        return String.valueOf(price);
     }
 }
