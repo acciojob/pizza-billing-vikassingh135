@@ -16,21 +16,21 @@ public class Pizza {
     public int getPrice(){
         this.price = isVeg? 300: 400;
         this.total = this.price;
-        return this.price;
+        return this.total;
     }
 
     public void addExtraCheese(){
-        this.total += 80;
+        total = total + 80;
     }
 
     public void addExtraToppings(){
         // your code goes here
-        this.total += 70;
+        total = total + 70;
     }
 
     public void addTakeaway(){
         // your code goes here
-        this.total += 20;
+        total = total + 20;
     }
 
     public String getBill(){
