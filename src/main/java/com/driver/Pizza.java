@@ -19,7 +19,7 @@ public class Pizza {
     }
 
     public void addExtraCheese(){
-        System.out.println(bill);
+//        System.out.println(bill);
         bill = String.valueOf(Integer.parseInt(bill) + 80);
     }
 
