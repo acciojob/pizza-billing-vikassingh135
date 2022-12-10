@@ -23,7 +23,7 @@ public class Pizza {
 
     public void addExtraToppings(){
         // your code goes here
-        price += 70;
+         price += (isVeg ? 70 : 120);
     }
 
     public void addTakeaway(){
@@ -33,6 +33,7 @@ public class Pizza {
 
     public String getBill(){
         // your code goes here
-        return String.valueOf(price);
+        this.bill = String.valueOf(price);
+        return this.bill;
     }
 }
