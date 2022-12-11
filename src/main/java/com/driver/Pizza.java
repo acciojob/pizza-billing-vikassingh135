@@ -8,14 +8,16 @@ public class Pizza {
     private String bill;
     private Boolean topping;
     private Boolean cheese;
+    private Boolean paper_bag;
+    private int topping_charge;
 
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
         this.price = isVeg? 300: 400;
         total = price;
-        bill = ("Base Price Of The Pizza: "+this.price+"\n");
         cheese = false;
         topping = false;
+        paper_bag = false;
     }
 
     public int getPrice(){
@@ -23,27 +25,37 @@ public class Pizza {
     }
 
     public void addExtraCheese(){
-        if(cheese || topping) return;
-        total += 80;
-        bill += ("Extra Cheese Added: "+80+"\n");
+        cheese = true;
     }
 
     public void addExtraToppings(){
-        if(topping) return;
-        cheese = true;
         topping = true;
-        int curr = isVeg ? 70 : 120;
-        total += curr;
-        bill += ("Extra Toppings Added: "+curr+"\n");
+        topping_charge = isVeg ? 70 : 120;
     }
 
     public void addTakeaway(){
-         total += 20;
-         bill += ("Paperbag Added: "+20+"\n");
+         paper_bag = true;
     }
 
     private int total = price;
     public String getBill(){
+        
+         bill = ("Base Price Of The Pizza: "+this.price+"\n");
+         if(cheese) {
+             total += 80;
+             bill += ("Extra Cheese Added: "+80+"\n");
+         }
+         
+         if(topping) {
+             total += topping_charge;
+             bill += ("Extra Toppings Added: "+topping_charge+"\n");
+         }
+         
+         if(paper_bag) {
+             total += 20;
+             bill += ("Paperbag Added: "+20+"\n");
+         }
+         
          bill += ("Total price: "+total+"\n");
          return bill;
     }
