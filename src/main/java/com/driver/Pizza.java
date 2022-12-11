@@ -6,16 +6,12 @@ public class Pizza {
     private int price;
     private Boolean isVeg;
     private String bill;
-    private Boolean isExtraCheese;
-    private Boolean isExtraTopping;
-    private Boolean isTake;
 
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
         this.price = isVeg? 300: 400;
-        isExtraCheese = false;
-        isExtraTopping = false;
-        isTake = true;
+        total = price;
+        bill = ("Base Price Of The Pizza: "+this.price+"\n");
     }
 
     public int getPrice(){
@@ -23,22 +19,24 @@ public class Pizza {
     }
 
     public void addExtraCheese(){
-        isExtraCheese = true;
+        total += 80;
+        bill += ("Extra Cheese Added: "+80+"\n");
     }
 
     public void addExtraToppings(){
-       isExtraTopping = true;
+       int curr = isVeg ? 70 : 120;
+       total += curr;
+       bill += ("Extra Toppings Added: "+curr+"\n");
     }
 
     public void addTakeaway(){
-        isTake = true;
+         total += 20;
+         bill += ("Paperbag Added: "+20+"\n");
     }
 
     private int total = price;
     public String getBill(){
-       if(isExtraCheese) total += 80;
-       if(isExtraCheese) total += (isVeg ? 70 : 120);
-       if(isTake) total += 20;
-       return String.valueOf(total);
+         bill += ("Total price: "+total+"\n");
+         return bill;
     }
 }
