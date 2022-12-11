@@ -14,7 +14,6 @@ public class Pizza {
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
         this.price = isVeg? 300: 400;
-        total = price;
         cheese = false;
         topping = false;
         paper_bag = false;
@@ -37,9 +36,9 @@ public class Pizza {
          paper_bag = true;
     }
 
-    private int total = price;
     public String getBill(){
-        
+
+         int total = price;
          bill = ("Base Price Of The Pizza: "+this.price+"\n");
          if(cheese) {
              total += 80;
